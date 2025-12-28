@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Laravel Web Developer - Building scalable internal web applications">
+    <title>Laravel Web Developer - Daffa Utomo</title>
+    
+    <!-- Favicon - Professional "D" Letter -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%233b82f6;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%238b5cf6;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='20' fill='url(%23grad)'/%3E%3Ctext x='50' y='73' font-family='Arial, sans-serif' font-size='60' font-weight='bold' fill='white' text-anchor='middle'%3ED%3C/text%3E%3C/svg%3E">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        .detail-page {
+            padding-top: 100px;
+            padding-bottom: var(--spacing-2xl);
+        }
+        
+        .detail-header {
+            text-align: center;
+            margin-bottom: var(--spacing-xl);
+            padding: var(--spacing-2xl);
+            background: linear-gradient(135deg, var(--bg-secondary), var(--bg-primary));
+            border-radius: var(--radius-xl);
+        }
+        
+        .detail-icon {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            border-radius: var(--radius-xl);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            margin: 0 auto var(--spacing-md);
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .detail-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .detail-section {
+            background-color: var(--bg-card);
+            padding: var(--spacing-xl);
+            border-radius: var(--radius-xl);
+            margin-bottom: var(--spacing-lg);
+            box-shadow: var(--shadow-md);
+            border: 1px solid var(--border-color);
+        }
+        
+        .detail-section h3 {
+            color: var(--accent-primary);
+            margin-bottom: var(--spacing-md);
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-sm);
+        }
+        
+        .detail-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .detail-list li {
+            padding: var(--spacing-sm) 0;
+            padding-left: var(--spacing-lg);
+            position: relative;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+        
+        .detail-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent-primary);
+            font-weight: bold;
+        }
+        
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-md);
+        }
+        
+        .tech-item {
+            background-color: var(--bg-secondary);
+            padding: var(--spacing-md);
+            border-radius: var(--radius-md);
+            text-align: center;
+            transition: all var(--transition-base);
+        }
+        
+        .tech-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .tech-item i {
+            font-size: 2rem;
+            color: var(--accent-primary);
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .achievement-card {
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
+            color: white;
+            padding: var(--spacing-lg);
+            border-radius: var(--radius-lg);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .achievement-card h4 {
+            margin-bottom: var(--spacing-sm);
+        }
+        
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: var(--spacing-xs);
+            margin-bottom: var(--spacing-lg);
+            padding: var(--spacing-sm) var(--spacing-md);
+            background-color: var(--bg-card);
+            border-radius: var(--radius-md);
+            transition: all var(--transition-base);
+            border: 1px solid var(--border-color);
+        }
+        
+        .back-button:hover {
+            background-color: var(--accent-primary);
+            color: white;
+            transform: translateX(-5px);
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
+            border-left: 4px solid var(--accent-primary);
+            padding: var(--spacing-md);
+            border-radius: var(--radius-md);
+            margin: var(--spacing-md) 0;
+        }
+        
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-md);
+            margin-top: var(--spacing-md);
+        }
+        
+        .feature-card {
+            background-color: var(--bg-secondary);
+            padding: var(--spacing-md);
+            border-radius: var(--radius-lg);
+            border: 2px solid var(--border-color);
+            transition: all var(--transition-base);
+        }
+        
+        .feature-card:hover {
+            border-color: var(--accent-primary);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .feature-card h4 {
+            color: var(--accent-primary);
+            margin-bottom: var(--spacing-sm);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <a href="../index.html" class="navbar-brand">Daffa Utomo</a>
+            <button class="navbar-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="navbar-menu">
+                <li><a href="../index.html#home">Home</a></li>
+                <li><a href="../index.html#about">About</a></li>
+                <li><a href="../index.html#skills">Skills</a></li>
+                <li><a href="../index.html#experience">Experience</a></li>
+                <li><a href="../index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Detail Content -->
+    <div class="detail-page">
+        <div class="container">
+            <a href="../index.html#experience" class="back-button">
+                <i class="fas fa-arrow-left"></i> Back to Portfolio
+            </a>
+            
+            <div class="detail-header reveal">
+                <div class="detail-icon">🌐</div>
+                <h1>Laravel Web Developer</h1>
+                <p style="font-size: 1.2rem; color: var(--text-secondary); margin-top: var(--spacing-md);">
+                    Full Stack Development • Internal Systems • Business Automation
+                </p>
+                <span class="experience-status" style="margin-top: var(--spacing-md);">Current Role</span>
+            </div>
+
+            <div class="detail-content">
+                <!-- Overview Section -->
+                <div class="detail-section reveal">
+                    <h3><i class="fas fa-info-circle"></i> Role Overview</h3>
+                    <p style="color: var(--text-secondary); line-height: 1.8; font-size: 1.05rem;">
+                        As a Laravel Web Developer, I am responsible for developing, maintaining, and enhancing internal web applications 
+                        that streamline company operations and boost productivity. My work focuses on creating robust, scalable, and 
+                        user-friendly solutions using the Laravel framework, ensuring that internal teams have the tools they need 
+                        to perform their tasks efficiently.
+                    </p>
+                    <div class="highlight-box">
+                        <strong style="color: var(--accent-primary);">💡 Key Focus:</strong><br>
+                        Building custom internal applications that automate business processes, improve data management, 
+                        and provide actionable insights through intuitive interfaces.
+                    </div>
+                </div>
+
+                <!-- Main Application Section -->
+                <div class="detail-section reveal">
+                    <h3><i class="fas fa-globe"></i> Internal Web Application</h3>
+                    <p style="color: var(--text-secondary); line-height: 1.8; margin-bottom: var(--spacing-md);">
+                        Developed and currently maintaining a comprehensive internal web platform that serves as the central hub 
+                        for various operational workflows, supporting 50+ daily active users across multiple departments.
+                    </p>
+                    
+                    <div class="feature-grid">
+                        <div class="feature-card">
+                            <h4>👥 User Management</h4>
+                            <p style="color: var(--text-secondary); font-size: 0.95rem;">
+                                Role-based access control system with multi-level permissions and authentication.
+                            </p>
+                        </div>
+                        <div class="feature-card">
+                            <h4>📊 Dashboard Analytics</h4>
+                            <p style="color: var(--text-secondary); font-size: 0.95rem;">
+                                Real-time data visualization with interactive charts and KPI monitoring.
+                            </p>
+                        </div>
+                        <div class="feature-card">
+                            <h4>📝 Document Management</h4>
+                            <p style="color: var(--text-secondary); font-size: 0.95rem;">
+                                Secure file upload, storage, and sharing system with version control.
+                            </p>
+                        </div>
+                        <div class="feature-card">
+                            <h4>🔔 Notification System</h4>
+                            <p style="color: var(--text-secondary); font-size: 0.95rem;">
+                                Real-time alerts via email and in-app notifications for critical events.
+                            </p>
+                        </div>
+                        <div class="feature-card">
+                            <h4>📋 Workflow Automation</h4>
+                            <p style="color: var(--text-secondary); font-size: 0.95rem;">
+                                Automated approval processes and task assignment workflows.
+                            </p>
+                        </div>
+                        <div class="feature-card">
+                            <h4>📈 Reporting Module</h4>
+                            <p style="color: var(--text-secondary); font-size: 0.95rem;">
+                                Custom report generation with export to Excel, PDF, and CSV formats.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Responsibilities Section -->
+                <div class="detail-section reveal">
+                    <h3><i class="fas fa-tasks"></i> Key Responsibilities</h3>
+                    <ul class="detail-list">
+                        <li><strong>Full-Stack Development:</strong> Building end-to-end features from database design to front-end implementation using Laravel's MVC architecture.</li>
+                        <li><strong>RESTful API Development:</strong> Creating secure and well-documented APIs for integration with mobile apps and third-party services.</li>
+                        <li><strong>Database Architecture:</strong> Designing and optimizing MySQL database schemas with proper indexing and relationship management.</li>
+                        <li><strong>Code Quality Assurance:</strong> Writing clean, maintainable code following PSR standards and implementing automated testing (PHPUnit).</li>
+                        <li><strong>Performance Optimization:</strong> Implementing caching strategies (Redis), query optimization, and lazy loading to ensure fast page loads.</li>
+                        <li><strong>Security Implementation:</strong> Securing applications against common vulnerabilities (SQL injection, XSS, CSRF) using Laravel's built-in security features.</li>
+                        <li><strong>Version Control:</strong> Managing code repositories with Git, conducting code reviews, and maintaining deployment pipelines.</li>
+                        <li><strong>User Support:</strong> Providing technical support, gathering user feedback, and iterating on features based on real-world usage.</li>
+                    </ul>
+                </div>
+
+                <!-- Technical Challenges Section -->
+                <div class="detail-section reveal">
+                    <h3><i class="fas fa-wrench"></i> Technical Challenges & Solutions</h3>
+                    
+                    <div class="achievement-card">
+                        <h4>🎯 Challenge 1: Slow Report Generation</h4>
+                        <p style="opacity: 0.9; margin-bottom: var(--spacing-sm);">
+                            <strong>Problem:</strong> Complex reports with multiple table joins were taking 15-20 seconds to generate, 
+                            causing user frustration and timeout issues.
+                        </p>
+                        <p style="opacity: 0.9;">
+                            <strong>Solution:</strong> Implemented Laravel Query Builder optimization, database indexing, and 
+                            Redis caching for frequently accessed reports. Reduced generation time to under 2 seconds (90% improvement).
+                        </p>
+                    </div>
+
+                    <div class="achievement-card">
+                        <h4>🎯 Challenge 2: Real-Time Notification System</h4>
+                        <p style="opacity: 0.9; margin-bottom: var(--spacing-sm);">
+                            <strong>Problem:</strong> Users needed instant notifications for time-sensitive approvals and updates 
+                            without constantly refreshing the page.
+                        </p>
+                        <p style="opacity: 0.9;">
+                            <strong>Solution:</strong> Integrated Laravel Broadcasting with Pusher for real-time WebSocket connections, 
+                            enabling instant push notifications. Improved user response time by 60%.
+                        </p>
+                    </div>
+
+                    <div class="achievement-card">
+                        <h4>🎯 Challenge 3: File Upload Security</h4>
+                        <p style="opacity: 0.9; margin-bottom: var(--spacing-sm);">
+                            <strong>Problem:</strong> Needed to allow users to upload various file types while preventing 
+                            malicious file uploads and ensuring data security.
+                        </p>
+                        <p style="opacity: 0.9;">
+                            <strong>Solution:</strong> Implemented Laravel's Storage facade with strict file validation, 
+                            virus scanning integration, and secure file storage with encrypted filenames and access control.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Technologies Section -->
+                <div class="detail-section reveal">
+                    <h3><i class="fas fa-code"></i> Technologies & Tools</h3>
+                    <div class="tech-grid">
+                        <div class="tech-item">
+                            <i class="fab fa-laravel"></i>
+                            <h4>Laravel</h4>
+                            <p style="color: var(--text-muted); font-size: 0.9rem;">PHP Framework</p>
+                        </div>
+                        <div class="tech-item">
+                            <i class="fab fa-php"></i>
+                            <h4>PHP</h4>
+                            <p style="color: var(--text-muted); font-size: 0.9rem;">Server-Side Language</p>
+                        </div>
+                        <div class="tech-item">
+                            <i class="fas fa-database"></i>
+                            <h4>MySQL</h4>
+                            <p style="color: var(--text-muted); font-size: 0.9rem;">Relational Database</p>
+                        </div>
+                        <div class="tech-item">
+                            <i class="fab fa-js"></i>
+                            <h4>JavaScript</h4>
+                            <p style="color: var(--text-muted); font-size: 0.9rem;">Frontend Interactivity</p>
+                        </div>
+                        <div class="tech-item">
+                            <i class="fab fa-bootstrap"></i>
+                            <h4>Bootstrap</h4>
+                            <p style="color: var(--text-muted); font-size: 0.9rem;">UI Framework</p>
+                        </div>
+                        <div class="tech-item">
+                            <i class="fas fa-memory"></i>
+                            <h4>Redis</h4>
+                            <p style="color: var(--text-muted); font-size: 0.9rem;">Caching System</p>
+                        </div>
+                        <div class="tech-item">
+                            <i class="fab fa-github"></i>
+                            <h4>Git/GitHub</h4>
+                            <p style="color: var(--text-muted); font-size: 0.9rem;">Version Control</p>
+                        </div>
+                        <div class="tech-item">
+                            <i class="fas fa-bolt"></i>
+                            <h4>Ajax</h4>
+                            <p style="color: var(--text-muted); font-size: 0.9rem;">Asynchronous Requests</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Features Implemented Section -->
+                <div class="detail-section reveal">
+                    <h3><i class="fas fa-star"></i> Key Features Implemented</h3>
+                    <ul class="detail-list">
+                        <li><strong>Multi-Language Support:</strong> Implemented Laravel localization for Indonesian and English interfaces.</li>
+                        <li><strong>Advanced Search:</strong> Built a powerful search system with filters, sorting, and pagination for large datasets.</li>
+                        <li><strong>Export Functionality:</strong> Created custom export features for Excel, PDF, and CSV with formatting options.</li>
+                        <li><strong>Email Integration:</strong> Configured SMTP mail sending with Laravel Mail for automated notifications and reports.</li>
+                        <li><strong>Activity Logging:</strong> Implemented comprehensive audit trails to track all user actions and system changes.</li>
+                        <li><strong>Responsive Design:</strong> Ensured all pages work seamlessly across mobile, tablet, and desktop devices.</li>
+                        <li><strong>Form Validation:</strong> Created robust client-side and server-side validation with user-friendly error messages.</li>
+                        <li><strong>Session Management:</strong> Implemented secure session handling with automatic timeout and concurrent login prevention.</li>
+                    </ul>
+                </div>
+
+                <!-- Impact Section -->
+                <div class="detail-section reveal">
+                    <h3><i class="fas fa-chart-line"></i> Business Impact</h3>
+                    <ul class="detail-list">
+                        <li><strong>Process Efficiency:</strong> Reduced manual data entry time by 70% through automation and streamlined workflows.</li>
+                        <li><strong>Cost Reduction:</strong> Eliminated the need for third-party software subscriptions, saving $12,000+ annually.</li>
+                        <li><strong>User Satisfaction:</strong> Achieved 92% user satisfaction rating based on internal feedback surveys.</li>
+                        <li><strong>Data Accuracy:</strong> Improved data consistency from 82% to 96% through validation and automated processes.</li>
+                        <li><strong>Response Time:</strong> Decreased average task completion time from 15 minutes to 5 minutes per task.</li>
+                        <li><strong>System Reliability:</strong> Maintained 99.5% uptime with proactive monitoring and maintenance.</li>
+                        <li><strong>Team Productivity:</strong> Enabled 3 departments to handle 40% more workload with the same staff size.</li>
+                    </ul>
+                </div>
+
+                <!-- Laravel Packages & Libraries Section -->
+                <div class="detail-section reveal">
+                    <h3><i class="fas fa-puzzle-piece"></i> Laravel Packages & Libraries Used</h3>
+                    <div class="skills-cloud">
+                        <span class="skill-tag">Laravel Sanctum (API Auth)</span>
+                        <span class="skill-tag">Laravel Excel</span>
+                        <span class="skill-tag">Laravel Debugbar</span>
+                        <span class="skill-tag">Intervention Image</span>
+                        <span class="skill-tag">Laravel Backup</span>
+                        <span class="skill-tag">Laravel Permission</span>
+                        <span class="skill-tag">Laravel Telescope</span>
+                        <span class="skill-tag">Laravel Horizon</span>
+                        <span class="skill-tag">Guzzle HTTP Client</span>
+                        <span class="skill-tag">Carbon (Date/Time)</span>
+                    </div>
+                </div>
+
+                <!-- Best Practices Section -->
+                <div class="detail-section reveal">
+                    <h3><i class="fas fa-check-circle"></i> Development Best Practices</h3>
+                    <ul class="detail-list">
+                        <li><strong>MVC Architecture:</strong> Strictly following Laravel's MVC pattern for clean code separation and maintainability.</li>
+                        <li><strong>Eloquent ORM:</strong> Utilizing Laravel Eloquent for elegant database interactions and relationship management.</li>
+                        <li><strong>Service Repository Pattern:</strong> Implementing service layers for business logic separation from controllers.</li>
+                        <li><strong>Request Validation:</strong> Using Form Request classes for centralized validation logic.</li>
+                        <li><strong>Blade Templates:</strong> Creating reusable components and layouts for consistent UI across the application.</li>
+                        <li><strong>Queue Jobs:</strong> Offloading time-consuming tasks to background queues for better performance.</li>
+                        <li><strong>Environment Configuration:</strong> Using .env files and config files for flexible deployment across environments.</li>
+                        <li><strong>Automated Testing:</strong> Writing feature and unit tests to ensure code reliability and prevent regressions.</li>
+                    </ul>
+                </div>
+
+                <!-- Future Enhancements Section -->
+                <div class="detail-section reveal">
+                    <h3><i class="fas fa-rocket"></i> Planned Enhancements</h3>
+                    <ul class="detail-list">
+                        <li>Migrating to Laravel 11 to leverage the latest features and performance improvements.</li>
+                        <li>Implementing GraphQL API alongside REST for more efficient data fetching.</li>
+                        <li>Adding Progressive Web App (PWA) capabilities for offline functionality.</li>
+                        <li>Integrating AI-powered analytics for predictive insights and recommendations.</li>
+                        <li>Building a mobile companion app using Flutter integrated with Laravel API.</li>
+                        <li>Implementing microservices architecture for better scalability and maintenance.</li>
+                        <li>Adding comprehensive Docker containerization for easier deployment.</li>
+                    </ul>
+                </div>
+
+                <!-- CTA Section -->
+                <div style="text-align: center; margin-top: var(--spacing-xl);">
+                    <a href="../index.html#contact" class="btn btn-primary" style="font-size: 1.1rem;">
+                        <i class="fas fa-envelope"></i> Let's Build Something Great
+                    </a>
+                    <a href="../index.html#experience" class="btn btn-outline" style="font-size: 1.1rem; margin-left: var(--spacing-md);">
+                        <i class="fas fa-arrow-left"></i> Back to Experience
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 Daffa Utomo. Built with 💙 using modern web technologies.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="../assets/js/main.js"></script>
+</body>
+</html>
