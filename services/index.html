@@ -314,48 +314,117 @@
         
         .portfolio-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
             margin-bottom: 4rem;
         }
         
-        .portfolio-item {
+        .portfolio-card {
             background: var(--bg-secondary);
             border-radius: 1rem;
             overflow: hidden;
             border: 1px solid var(--border-color);
             transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
         }
         
-        .portfolio-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        .portfolio-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            border-color: var(--accent-primary);
         }
         
-        .portfolio-placeholder {
-            height: 200px;
-            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
+        .portfolio-thumbnail {
+            height: 180px;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(139, 92, 246, 0.15));
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 3rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .portfolio-thumbnail::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .portfolio-card:hover .portfolio-thumbnail::before {
+            opacity: 0.1;
+        }
+        
+        .portfolio-icon {
+            font-size: 3.5rem;
             color: var(--accent-primary);
+            position: relative;
+            z-index: 1;
         }
         
-        .portfolio-content {
+        .portfolio-body {
             padding: 1.5rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
         }
         
-        .portfolio-content h3 {
+        .portfolio-category {
+            display: inline-block;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--accent-primary);
+            background: rgba(59, 130, 246, 0.1);
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+            margin-bottom: 0.75rem;
+            width: fit-content;
+        }
+        
+        .portfolio-body h3 {
             color: var(--text-primary);
-            margin-bottom: 0.5rem;
+            margin-bottom: 0.75rem;
             font-size: 1.25rem;
+            font-weight: 600;
         }
         
-        .portfolio-content p {
+        .portfolio-body p {
             color: var(--text-muted);
             font-size: 0.95rem;
-            line-height: 1.5;
+            line-height: 1.6;
+            margin-bottom: 1.25rem;
+            flex: 1;
+        }
+        
+        .portfolio-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--accent-primary);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .portfolio-link:hover {
+            gap: 0.75rem;
+            color: #2563eb;
+        }
+        
+        .portfolio-link i {
+            transition: transform 0.3s ease;
+        }
+        
+        .portfolio-link:hover i {
+            transform: translateX(3px);
         }
         
         .pricing-grid {
@@ -540,8 +609,8 @@
         <main class="main-content">
             <!-- Hero Section -->
             <section class="services-hero">
-                <h1 data-id="Website Profesional untuk Bisnis Anda" data-en="Professional Website for Your Business">Website Profesional untuk Bisnis Anda</h1>
-                <p data-id="Dari konsep sampai online, saya bantu bisnis UMKM & brand personal punya website yang menarik dan berfungsi dengan baik" data-en="From concept to launch, I help SMEs & personal brands build attractive and functional websites">Dari konsep sampai online, saya bantu bisnis UMKM & brand personal punya website yang menarik dan berfungsi dengan baik</p>
+                <h1 data-id="Bantu Bisnismu Dapat Pelanggan dari Website — Cepat, Murah, & Profesional" data-en="Help Your Business Get Customers from Website — Fast, Affordable, & Professional">Bantu Bisnismu Dapat Pelanggan dari Website — Cepat, Murah, & Profesional</h1>
+                <p data-id="Spesialis website untuk UMKM & toko online. Gak perlu paham coding — dari konsultasi sampai website online, saya yang urus semua. Harga transparan, pengerjaan cepat, garansi revisi!" data-en="Website specialist for SMEs & online stores. No coding knowledge needed — from consultation to launch, I handle everything. Transparent pricing, fast delivery, revision guarantee!">Spesialis website untuk UMKM & toko online. Gak perlu paham coding — dari konsultasi sampai website online, saya yang urus semua. Harga transparan, pengerjaan cepat, garansi revisi!</p>
                 <div class="cta-buttons">
                     <a href="https://wa.me/6281519098562?text=Halo,%20saya%20mau%20konsultasi%20pembuatan%20website" class="btn btn-primary" target="_blank">
                         <i class="fab fa-whatsapp"></i>
@@ -570,7 +639,7 @@
                             <i class="fas fa-tools"></i>
                         </div>
                         <h3 data-id="Fix Error Website" data-en="Fix Website Errors">Fix Error Website</h3>
-                        <p data-id="Website error? Bug? Lambat? Saya perbaiki dengan cepat dan tuntas." data-en="Website errors? Bugs? Slow? I'll fix it quickly and thoroughly.">Website error? Bug? Lambat? Saya perbaiki dengan cepat dan tuntas.</p>
+                        <p data-id="Website tiba-tiba error? Gak bisa dipakai jualan? Tenang, saya perbaiki sampai normal lagi. Cepat, tuntas, gak bikin pusing." data-en="Website suddenly broken? Can't use it for selling? Don't worry, I'll fix it back to normal. Fast, thorough, hassle-free.">Website tiba-tiba error? Gak bisa dipakai jualan? Tenang, saya perbaiki sampai normal lagi. Cepat, tuntas, gak bikin pusing.</p>
                         <ul class="features-list">
                             <li><i class="fas fa-check"></i> <span data-id="Perbaikan bug & error" data-en="Bug & error fixes">Perbaikan bug & error</span></li>
                             <li><i class="fas fa-check"></i> <span data-id="Optimasi kecepatan" data-en="Speed optimization">Optimasi kecepatan</span></li>
@@ -586,7 +655,7 @@
                             <i class="fas fa-server"></i>
                         </div>
                         <h3 data-id="Setup Domain & Hosting" data-en="Domain & Hosting Setup">Setup Domain & Hosting</h3>
-                        <p data-id="Bingung setup domain dan hosting? Saya bantu dari A sampai Z sampai website Anda online." data-en="Confused about domain and hosting setup? I'll help you from A to Z until your website is live.">Bingung setup domain dan hosting? Saya bantu dari A sampai Z sampai website Anda online.</p>
+                        <p data-id="Biar website kamu punya alamat resmi dan tampil profesional. Saya urus semua, dari beli domain sampai website online. Gak perlu pusing urusan teknis!" data-en="Make your website have an official address and look professional. I handle everything, from buying domain to going live. No need to worry about technical stuff!">Biar website kamu punya alamat resmi dan tampil profesional. Saya urus semua, dari beli domain sampai website online. Gak perlu pusing urusan teknis!</p>
                         <ul class="features-list">
                             <li><i class="fas fa-check"></i> <span data-id="Instalasi hosting" data-en="Hosting installation">Instalasi hosting</span></li>
                             <li><i class="fas fa-check"></i> <span data-id="Konfigurasi domain" data-en="Domain configuration">Konfigurasi domain</span></li>
@@ -602,7 +671,7 @@
                             <i class="fas fa-file-alt"></i>
                         </div>
                         <h3 data-id="Landing Page" data-en="Landing Page">Landing Page</h3>
-                        <p data-id="Butuh landing page untuk promosi atau campaign? Saya buatkan yang menarik dan responsif." data-en="Need a landing page for promotion or campaign? I'll create an attractive and responsive one.">Butuh landing page untuk promosi atau campaign? Saya buatkan yang menarik dan responsif.</p>
+                        <p data-id="Mau promosi produk atau jasa? Landing page yang bagus bikin calon pelanggan lebih yakin dan gampang order lewat WhatsApp. Cocok buat campaign dan iklan!" data-en="Want to promote products or services? A good landing page makes potential customers more confident and easy to order via WhatsApp. Perfect for campaigns and ads!">Mau promosi produk atau jasa? Landing page yang bagus bikin calon pelanggan lebih yakin dan gampang order lewat WhatsApp. Cocok buat campaign dan iklan!</p>
                         <ul class="features-list">
                             <li><i class="fas fa-check"></i> <span data-id="Desain modern & responsif" data-en="Modern & responsive design">Desain modern & responsif</span></li>
                             <li><i class="fas fa-check"></i> <span data-id="Mobile-friendly" data-en="Mobile-friendly">Mobile-friendly</span></li>
@@ -618,7 +687,7 @@
                             <i class="fas fa-plug"></i>
                         </div>
                         <h3 data-id="Integrasi API" data-en="API Integration">Integrasi API</h3>
-                        <p data-id="Perlu koneksi ke WhatsApp, payment gateway, atau sistem lain? Saya integrasikan untuk Anda." data-en="Need connection to WhatsApp, payment gateway, or other systems? I'll integrate them for you.">Perlu koneksi ke WhatsApp, payment gateway, atau sistem lain? Saya integrasikan untuk Anda.</p>
+                        <p data-id="Mau fitur otomatis kayak tombol WhatsApp langsung chat, peta lokasi toko, atau terima pembayaran online? Saya sambungkan biar semuanya kerja otomatis tanpa ribet." data-en="Want automatic features like WhatsApp chat button, store location map, or online payments? I'll connect them so everything works automatically without hassle.">Mau fitur otomatis kayak tombol WhatsApp langsung chat, peta lokasi toko, atau terima pembayaran online? Saya sambungkan biar semuanya kerja otomatis tanpa ribet.</p>
                         <ul class="features-list">
                             <li><i class="fas fa-check"></i> <span data-id="WhatsApp Business API" data-en="WhatsApp Business API">WhatsApp Business API</span></li>
                             <li><i class="fas fa-check"></i> <span data-id="Payment Gateway" data-en="Payment Gateway">Payment Gateway</span></li>
@@ -634,7 +703,7 @@
                             <i class="fas fa-store"></i>
                         </div>
                         <h3 data-id="Website UMKM Lengkap" data-en="Complete SME Website">Website UMKM Lengkap</h3>
-                        <p data-id="Paket lengkap untuk UMKM: company profile, katalog produk, form kontak, dan halaman penting lainnya." data-en="Complete package for SMEs: company profile, product catalog, contact form, and other important pages.">Paket lengkap untuk UMKM: company profile, katalog produk, form kontak, dan halaman penting lainnya.</p>
+                        <p data-id="Biar bisnis kamu terlihat lebih profesional dan dipercaya pelanggan! Lengkap dengan profil usaha, katalog produk/jasa, kontak, dan semua halaman penting yang bikin bisnis makin kredibel." data-en="Make your business look more professional and trusted by customers! Complete with business profile, product/service catalog, contact, and all important pages that boost credibility.">Biar bisnis kamu terlihat lebih profesional dan dipercaya pelanggan! Lengkap dengan profil usaha, katalog produk/jasa, kontak, dan semua halaman penting yang bikin bisnis makin kredibel.</p>
                         <ul class="features-list">
                             <li><i class="fas fa-check"></i> <span data-id="Multi halaman (5-7 halaman)" data-en="Multi-page (5-7 pages)">Multi halaman (5-7 halaman)</span></li>
                             <li><i class="fas fa-check"></i> <span data-id="Katalog produk/jasa" data-en="Product/service catalog">Katalog produk/jasa</span></li>
@@ -661,25 +730,53 @@
                     <div class="why-card">
                         <i class="fas fa-rocket"></i>
                         <h3 data-id="Pengerjaan Cepat" data-en="Fast Delivery">Pengerjaan Cepat</h3>
-                        <p data-id="Landing page bisa selesai 3-5 hari, website UMKM 7-14 hari. Gak pakai lama!" data-en="Landing page ready in 3-5 days, SME website in 7-14 days. Quick turnaround!">Landing page bisa selesai 3-5 hari, website UMKM 7-14 hari. Gak pakai lama!</p>
+                        <p data-id="Landing page 3-5 hari kerja, website UMKM 7-14 hari kerja. Butuh cepat? Bisa diatur! Gak pakai lama, website langsung bisa dipake jualan." data-en="Landing page 3-5 working days, SME website 7-14 working days. Need faster? Can be arranged! Quick turnaround, website ready to use for selling.">Landing page 3-5 hari kerja, website UMKM 7-14 hari kerja. Butuh cepat? Bisa diatur! Gak pakai lama, website langsung bisa dipake jualan.</p>
                     </div>
                     
                     <div class="why-card">
                         <i class="fas fa-sync-alt"></i>
                         <h3 data-id="Garansi Revisi" data-en="Revision Guarantee">Garansi Revisi</h3>
-                        <p data-id="Gratis revisi sesuai paket. Saya pastikan website sesuai dengan keinginan Anda." data-en="Free revisions according to package. I ensure the website matches your vision.">Gratis revisi sesuai paket. Saya pastikan website sesuai dengan keinginan Anda.</p>
+                        <p data-id="Ada yang mau diubah? Tenang, gratis revisi sesuai paket sampai kamu puas. Saya pastikan hasilnya sesuai maunya kamu, gak akan dibiarkan setengah-setengah." data-en="Want to change something? Don't worry, free revisions per package until you're satisfied. I ensure the result matches your vision, never half-done.">Ada yang mau diubah? Tenang, gratis revisi sesuai paket sampai kamu puas. Saya pastikan hasilnya sesuai maunya kamu, gak akan dibiarkan setengah-setengah.</p>
                     </div>
                     
                     <div class="why-card">
                         <i class="fas fa-comments"></i>
                         <h3 data-id="Komunikasi Jelas" data-en="Clear Communication">Komunikasi Jelas</h3>
-                        <p data-id="Fast response via WhatsApp. Saya jelaskan dengan bahasa yang mudah dipahami." data-en="Fast response via WhatsApp. I explain everything in simple terms.">Fast response via WhatsApp. Saya jelaskan dengan bahasa yang mudah dipahami.</p>
+                        <p data-id="Chat via WhatsApp kapan aja, fast response! Saya jelasin pakai bahasa sehari-hari, bukan istilah teknis yang bikin pusing. Gampang dimengerti, gak ribet." data-en="Chat via WhatsApp anytime, fast response! I explain using everyday language, not confusing technical terms. Easy to understand, no hassle.">Chat via WhatsApp kapan aja, fast response! Saya jelasin pakai bahasa sehari-hari, bukan istilah teknis yang bikin pusing. Gampang dimengerti, gak ribet.</p>
                     </div>
                     
                     <div class="why-card">
-                        <i class="fas fa-wrench"></i>
-                        <h3 data-id="Maintenance Opsional" data-en="Optional Maintenance">Maintenance Opsional</h3>
-                        <p data-id="Butuh maintenance rutin? Ada paket maintenance dengan harga terjangkau." data-en="Need regular maintenance? Affordable maintenance packages available.">Butuh maintenance rutin? Ada paket maintenance dengan harga terjangkau.</p>
+                        <i class="fas fa-handshake"></i>
+                        <h3 data-id="Mulai Tanpa Ribet" data-en="Start Without Hassle">Mulai Tanpa Ribet</h3>
+                        <p data-id="Gak perlu tanda tangan kontrak panjang atau syarat rumit. Konsultasi dulu gratis, cocok baru deal. Bayar bertahap: DP 50%, pelunasan setelah selesai. Aman!" data-en="No long contracts or complicated requirements. Free consultation first, deal when suitable. Pay in stages: 50% down payment, balance after completion. Safe!">Gak perlu tanda tangan kontrak panjang atau syarat rumit. Konsultasi dulu gratis, cocok baru deal. Bayar bertahap: DP 50%, pelunasan setelah selesai. Aman!</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Testimonials Section -->
+            <section id="testimonials" class="section">
+                <div class="section-header">
+                    <h2 class="section-title" data-id="Kata Mereka yang Sudah Percaya" data-en="What They Say">Kata Mereka yang Sudah Percaya</h2>
+                    <p class="section-description" data-id="Review dari klien yang puas dengan hasil kerja saya" data-en="Reviews from satisfied clients">Review dari klien yang puas dengan hasil kerja saya</p>
+                </div>
+                
+                <div class="why-me-grid">
+                    <div class="why-card">
+                        <i class="fas fa-quote-left" style="color: var(--accent-primary); font-size: 2rem; margin-bottom: 1rem;"></i>
+                        <p style="font-style: italic; color: var(--text-muted); line-height: 1.6; margin-bottom: 1rem;">"Website toko online saya yang error udah 3 hari, dalam 1 hari langsung beres! Sekarang bisa jualan lagi. Makasih banyak!"</p>
+                        <p style="font-weight: 600; color: var(--text-primary);">— Bu Siti (Toko Online Fashion)</p>
+                    </div>
+                    
+                    <div class="why-card">
+                        <i class="fas fa-quote-left" style="color: var(--accent-primary); font-size: 2rem; margin-bottom: 1rem;"></i>
+                        <p style="font-style: italic; color: var(--text-muted); line-height: 1.6; margin-bottom: 1rem;">"Webnya rapi, cepat selesai, dan harganya masuk akal. Komunikasi juga gampang lewat WA. Recommended!"</p>
+                        <p style="font-weight: 600; color: var(--text-primary);">— Pak Budi (UMKM Catering)</p>
+                    </div>
+                    
+                    <div class="why-card">
+                        <i class="fas fa-quote-left" style="color: var(--accent-primary); font-size: 2rem; margin-bottom: 1rem;"></i>
+                        <p style="font-style: italic; color: var(--text-muted); line-height: 1.6; margin-bottom: 1rem;">"Awalnya gak ngerti apa-apa soal website, tapi dijelasin dengan sabar sampai paham. Hasilnya juga memuaskan!"</p>
+                        <p style="font-weight: 600; color: var(--text-primary);">— Mbak Rina (Usaha Kue Homemade)</p>
                     </div>
                 </div>
             </section>
@@ -687,78 +784,93 @@
             <!-- Portfolio Section -->
             <section id="portfolio" class="section">
                 <div class="section-header">
-                    <h2 class="section-title" data-id="Hasil Kerja Saya" data-en="My Work">Hasil Kerja Saya</h2>
-                    <p class="section-description" data-id="Beberapa project yang sudah saya kerjakan untuk berbagai klien" data-en="Some projects I've completed for various clients">
-                        Beberapa project yang sudah saya kerjakan untuk berbagai klien
+                    <h2 class="section-title" data-id="Referensi & Inspirasi Desain" data-en="Design References & Inspiration">Referensi & Inspirasi Desain</h2>
+                    <p class="section-description" data-id="Website berkualitas yang bisa jadi inspirasi untuk bisnis Anda. Saya bisa bantu buatkan yang serupa dengan budget terjangkau!" data-en="Quality websites that can inspire your business. I can help create something similar with an affordable budget!">
+                        Website berkualitas yang bisa jadi inspirasi untuk bisnis Anda. Saya bisa bantu buatkan yang serupa dengan budget terjangkau!
                     </p>
                 </div>
                 
                 <div class="portfolio-grid">
-                    <div class="portfolio-item">
-                        <div class="portfolio-placeholder">
-                            <i class="fas fa-shopping-cart"></i>
+                    <!-- Card 1: Fashion E-commerce -->
+                    <div class="portfolio-card">
+                        <div class="portfolio-thumbnail">
+                            <i class="portfolio-icon fas fa-shopping-bag"></i>
                         </div>
-                        <div class="portfolio-content">
-                            <h3>Toko Online Bakul</h3>
-                            <p>Website e-commerce untuk bisnis retail dengan sistem keranjang belanja dan integrasi WhatsApp untuk order.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="portfolio-item">
-                        <div class="portfolio-placeholder">
-                            <i class="fas fa-graduation-cap"></i>
-                        </div>
-                        <div class="portfolio-content">
-                            <h3>Website Sekolah SMP N 3</h3>
-                            <p>Website company profile untuk sekolah dengan sistem informasi, berita, dan galeri kegiatan.</p>
+                        <div class="portfolio-body">
+                            <span class="portfolio-category" data-id="E-COMMERCE" data-en="E-COMMERCE">E-COMMERCE</span>
+                            <h3 data-id="Toko Fashion Online Modern" data-en="Modern Fashion Online Store">Toko Fashion Online Modern</h3>
+                            <p data-id="Contoh website toko fashion dengan tampilan produk yang rapi, navigasi mudah, dan layout modern. Cocok untuk bisnis fashion & retail online." data-en="Example of fashion store website with neat product display, easy navigation, and modern layout. Perfect for fashion & online retail business.">Contoh website toko fashion dengan tampilan produk yang rapi, navigasi mudah, dan layout modern. Cocok untuk bisnis fashion & retail online.</p>
+                            <a href="https://shop.mango.com/id/id/h/anak" target="_blank" rel="noopener noreferrer" class="portfolio-link">
+                                <span data-id="Lihat Contoh" data-en="View Example">Lihat Contoh</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
                         </div>
                     </div>
                     
-                    <div class="portfolio-item">
-                        <div class="portfolio-placeholder">
-                            <i class="fas fa-user-circle"></i>
+                    <!-- Card 2: Catering & Food -->
+                    <div class="portfolio-card">
+                        <div class="portfolio-thumbnail">
+                            <i class="portfolio-icon fas fa-cookie-bite"></i>
                         </div>
-                        <div class="portfolio-content">
-                            <h3>Portfolio Personal</h3>
-                            <p>Website portfolio untuk freelancer dan profesional yang ingin showcase skill dan project mereka.</p>
-                        </div>
-                    </div>
-                    
-                    <div class="portfolio-item">
-                        <div class="portfolio-placeholder">
-                            <i class="fas fa-heartbeat"></i>
-                        </div>
-                        <div class="portfolio-content">
-                            <h3>Cancer Detection System</h3>
-                            <p>Web application untuk deteksi dini kanker menggunakan machine learning dan interface yang user-friendly.</p>
+                        <div class="portfolio-body">
+                            <span class="portfolio-category" data-id="KULINER" data-en="CULINARY">KULINER</span>
+                            <h3 data-id="Website Catering & Food Modern" data-en="Modern Catering & Food Website">Website Catering & Food Modern</h3>
+                            <p data-id="Landing page untuk bisnis kuliner dengan foto produk menarik dan tombol order yang jelas. Bikin calon pelanggan langsung lapar dan pesan!" data-en="Landing page for culinary business with attractive product photos and clear order buttons. Makes potential customers hungry and order immediately!">Landing page untuk bisnis kuliner dengan foto produk menarik dan tombol order yang jelas. Bikin calon pelanggan langsung lapar dan pesan!</p>
+                            <a href="https://crumblcookies.com/catering" target="_blank" rel="noopener noreferrer" class="portfolio-link">
+                                <span data-id="Lihat Contoh" data-en="View Example">Lihat Contoh</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
                         </div>
                     </div>
                     
-                    <div class="portfolio-item">
-                        <div class="portfolio-placeholder">
-                            <i class="fas fa-calculator"></i>
+                    <!-- Card 3: Brand/Skincare -->
+                    <div class="portfolio-card">
+                        <div class="portfolio-thumbnail">
+                            <i class="portfolio-icon fas fa-spa"></i>
                         </div>
-                        <div class="portfolio-content">
-                            <h3>Platform Belajar Matematika</h3>
-                            <p>Website edukatif untuk belajar matematika dengan fitur interactive dan gamifikasi.</p>
+                        <div class="portfolio-body">
+                            <span class="portfolio-category" data-id="BRAND/PRODUK" data-en="BRAND/PRODUCT">BRAND/PRODUK</span>
+                            <h3 data-id="Website Brand Profesional" data-en="Professional Brand Website">Website Brand Profesional</h3>
+                            <p data-id="Company profile untuk brand lokal dengan desain bersih dan katalog produk lengkap. Bikin bisnis UMKM kamu terlihat lebih kredibel dan terpercaya!" data-en="Company profile for local brand with clean design and complete product catalog. Makes your SME business look more credible and trustworthy!">Company profile untuk brand lokal dengan desain bersih dan katalog produk lengkap. Bikin bisnis UMKM kamu terlihat lebih kredibel dan terpercaya!</p>
+                            <a href="https://sk-indonesia.com/" target="_blank" rel="noopener noreferrer" class="portfolio-link">
+                                <span data-id="Lihat Contoh" data-en="View Example">Lihat Contoh</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
                         </div>
                     </div>
                     
-                    <div class="portfolio-item">
-                        <div class="portfolio-placeholder">
-                            <i class="fas fa-building"></i>
+                    <!-- Card 4: Business Services -->
+                    <div class="portfolio-card">
+                        <div class="portfolio-thumbnail">
+                            <i class="portfolio-icon fas fa-shipping-fast"></i>
                         </div>
-                        <div class="portfolio-content">
-                            <h3>Company Profile UMKM</h3>
-                            <p>Website company profile untuk UMKM dengan katalog produk dan form kontak terintegrasi.</p>
+                        <div class="portfolio-body">
+                            <span class="portfolio-category" data-id="JASA BISNIS" data-en="BUSINESS SERVICES">JASA BISNIS</span>
+                            <h3 data-id="Website Jasa Profesional" data-en="Professional Service Website">Website Jasa Profesional</h3>
+                            <p data-id="Website untuk bisnis jasa dengan penjelasan layanan yang jelas dan form kontak mudah. Bantu klien lebih percaya dan cepat menghubungi Anda!" data-en="Website for service business with clear service descriptions and easy contact forms. Helps clients trust more and contact you quickly!">Website untuk bisnis jasa dengan penjelasan layanan yang jelas dan form kontak mudah. Bantu klien lebih percaya dan cepat menghubungi Anda!</p>
+                            <a href="https://www.balisourcingcargo.com/" target="_blank" rel="noopener noreferrer" class="portfolio-link">
+                                <span data-id="Lihat Contoh" data-en="View Example">Lihat Contoh</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </a>
                         </div>
                     </div>
+                </div>
+                
+                <div style="text-align: center; margin-top: 3rem; padding: 2rem; background: rgba(59, 130, 246, 0.05); border-radius: 1rem; border: 1px dashed var(--border-color);">
+                    <p style="color: var(--text-muted); margin-bottom: 1rem; font-size: 1rem;">
+                        <i class="fas fa-lightbulb" style="color: var(--accent-primary);"></i> 
+                        <span data-id="Suka dengan salah satu contoh di atas? Saya bisa buatkan yang serupa untuk bisnis kamu dengan harga terjangkau!" data-en="Like one of the examples above? I can create something similar for your business at an affordable price!">Suka dengan salah satu contoh di atas? Saya bisa buatkan yang serupa untuk bisnis kamu dengan harga terjangkau!</span>
+                    </p>
+                    <a href="https://wa.me/6281519098562?text=Halo%20Daffa,%20saya%20tertarik%20dengan%20referensi%20desain%20di%20website.%20Bisa%20dibuatkan%20yang%20serupa?" class="btn btn-primary" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                        <span data-id="Konsultasi Desain Gratis" data-en="Free Design Consultation">Konsultasi Desain Gratis</span>
+                    </a>
                 </div>
                 
                 <div style="text-align: center; margin-top: 2rem;">
                     <a href="../pages/all-projects.html?from=services" class="btn btn-secondary">
                         <i class="fas fa-folder-open"></i>
-                        <span data-id="Lihat Portfolio Lengkap" data-en="View Full Portfolio">Lihat Portfolio Lengkap</span>
+                        <span data-id="Lihat Portfolio Lengkap Saya" data-en="View My Full Portfolio">Lihat Portfolio Lengkap Saya</span>
                     </a>
                 </div>
             </section>
@@ -775,32 +887,32 @@
                 <div class="workflow">
                     <div class="workflow-step">
                         <div class="workflow-number">1</div>
-                        <h4 data-id="Konsultasi" data-en="Consultation">Konsultasi</h4>
-                        <p data-id="Ceritakan kebutuhan Anda via WhatsApp" data-en="Share your needs via WhatsApp">Ceritakan kebutuhan Anda via WhatsApp</p>
+                        <h4 data-id="Konsultasi Gratis" data-en="Free Consultation">Konsultasi Gratis</h4>
+                        <p data-id="Chat via WA, ceritain mau website kayak apa" data-en="Chat via WA, tell me what kind of website you want">Chat via WA, ceritain mau website kayak apa</p>
                     </div>
                     
                     <div class="workflow-step">
                         <div class="workflow-number">2</div>
-                        <h4 data-id="Deal" data-en="Agreement">Deal</h4>
-                        <p data-id="Sepakat harga & timeline, DP 50%" data-en="Agree on price & timeline, 50% down payment">Sepakat harga & timeline, DP 50%</p>
+                        <h4 data-id="Hitung & Deal" data-en="Calculate & Deal">Hitung & Deal</h4>
+                        <p data-id="Saya kasih harga & estimasi waktu. Cocok? Deal! DP 50%" data-en="I provide price & timeline. Suitable? Deal! 50% down payment">Saya kasih harga & estimasi waktu. Cocok? Deal! DP 50%</p>
                     </div>
                     
                     <div class="workflow-step">
                         <div class="workflow-number">3</div>
                         <h4 data-id="Pengerjaan" data-en="Development">Pengerjaan</h4>
-                        <p data-id="Saya kerjakan dengan update progress berkala" data-en="I work with regular progress updates">Saya kerjakan dengan update progress berkala</p>
+                        <p data-id="Saya kerjakan sambil update progress. Kamu bisa pantau" data-en="I work while updating progress. You can monitor">Saya kerjakan sambil update progress. Kamu bisa pantau</p>
                     </div>
                     
                     <div class="workflow-step">
                         <div class="workflow-number">4</div>
                         <h4 data-id="Revisi" data-en="Revision">Revisi</h4>
-                        <p data-id="Revisi sesuai paket sampai Anda puas" data-en="Revisions per package until you're satisfied">Revisi sesuai paket sampai Anda puas</p>
+                        <p data-id="Ada yang kurang sreg? Revisi sampai puas!" data-en="Something not right? Revise until satisfied!">Ada yang kurang sreg? Revisi sampai puas!</p>
                     </div>
                     
                     <div class="workflow-step">
                         <div class="workflow-number">5</div>
-                        <h4 data-id="Publish" data-en="Launch">Publish</h4>
-                        <p data-id="Website online & pelunasan 50%" data-en="Website live & 50% final payment">Website online & pelunasan 50%</p>
+                        <h4 data-id="Go Live!" data-en="Go Live!">Go Live!</h4>
+                        <p data-id="Website online, siap dipake. Bayar sisanya 50%. Done!" data-en="Website live, ready to use. Pay remaining 50%. Done!">Website online, siap dipake. Bayar sisanya 50%. Done!</p>
                     </div>
                 </div>
             </section>
@@ -895,65 +1007,74 @@
                     <div class="faq-item">
                         <div class="faq-question">
                             <i class="fas fa-question-circle"></i>
-                            Berapa lama proses pembuatan website?
+                            <span data-id="Berapa lama proses pembuatan website?" data-en="How long does website development take?">Berapa lama proses pembuatan website?</span>
                         </div>
-                        <div class="faq-answer">
-                            Tergantung paket yang dipilih. Landing page biasanya 3-5 hari kerja, website UMKM 7-14 hari kerja. Untuk project custom, timeline akan didiskusikan terlebih dahulu.
-                        </div>
+                        <div class="faq-answer" data-id="Tergantung paket yang dipilih. Landing page biasanya 3-5 hari kerja, website UMKM 7-14 hari kerja. Butuh lebih cepat? Bisa diatur! Saya usahakan sesuai kebutuhan kamu, yang penting hasilnya tetap rapi." data-en="Depends on the package. Landing page usually 3-5 working days, SME website 7-14 working days. Need faster? Can be arranged! I'll work according to your needs, as long as the result stays neat.">Tergantung paket yang dipilih. Landing page biasanya 3-5 hari kerja, website UMKM 7-14 hari kerja. Butuh lebih cepat? Bisa diatur! Saya usahakan sesuai kebutuhan kamu, yang penting hasilnya tetap rapi.</div>
                     </div>
                     
                     <div class="faq-item">
                         <div class="faq-question">
                             <i class="fas fa-question-circle"></i>
-                            Apakah harga sudah termasuk domain dan hosting?
+                            <span data-id="Apakah harga sudah termasuk domain dan hosting?" data-en="Does the price include domain and hosting?">Apakah harga sudah termasuk domain dan hosting?</span>
                         </div>
-                        <div class="faq-answer">
-                            Belum. Harga yang tertera adalah untuk jasa pembuatan website saja. Untuk domain dan hosting, biayanya sekitar Rp 150.000 - Rp 300.000 per tahun tergantung provider. Saya bisa bantu setup juga.
-                        </div>
+                        <div class="faq-answer" data-id="Belum. Harga yang tertera untuk jasa pembuatan saja. Domain & hosting sekitar Rp 150rb - 300rb per tahun (tergantung pilihan). Tapi tenang, saya bisa bantu belikan dan setup sekalian kalau mau, jadi gak perlu pusing!" data-en="Not yet. The listed price is for development only. Domain & hosting around Rp 150k - 300k per year (depends on choice). But don't worry, I can help buy and set it up too if you want, so no need to worry!">Belum. Harga yang tertera untuk jasa pembuatan saja. Domain & hosting sekitar Rp 150rb - 300rb per tahun (tergantung pilihan). Tapi tenang, saya bisa bantu belikan dan setup sekalian kalau mau, jadi gak perlu pusing!</div>
                     </div>
                     
                     <div class="faq-item">
                         <div class="faq-question">
                             <i class="fas fa-question-circle"></i>
-                            Bagaimana cara bayarnya?
+                            <span data-id="Bagaimana cara bayarnya?" data-en="How is the payment?">Bagaimana cara bayarnya?</span>
                         </div>
-                        <div class="faq-answer">
-                            Sistem pembayaran: DP 50% di awal setelah deal, pelunasan 50% setelah website selesai dan siap publish. Pembayaran bisa via transfer bank atau e-wallet.
-                        </div>
+                        <div class="faq-answer" data-id="Simple kok! DP 50% di awal setelah kita deal harga & timeline. Sisanya 50% dibayar setelah website jadi dan kamu udah puas. Bayar via transfer bank atau e-wallet (OVO, GoPay, Dana). Aman dan transparan!" data-en="It's simple! 50% down payment after we agree on price & timeline. The remaining 50% paid after website is done and you're satisfied. Pay via bank transfer or e-wallet (OVO, GoPay, Dana). Safe and transparent!">Simple kok! DP 50% di awal setelah kita deal harga & timeline. Sisanya 50% dibayar setelah website jadi dan kamu udah puas. Bayar via transfer bank atau e-wallet (OVO, GoPay, Dana). Aman dan transparan!</div>
                     </div>
                     
                     <div class="faq-item">
                         <div class="faq-question">
                             <i class="fas fa-question-circle"></i>
-                            Apakah bisa request desain sendiri?
+                            <span data-id="Apakah bisa request desain sendiri?" data-en="Can I request my own design?">Apakah bisa request desain sendiri?</span>
                         </div>
-                        <div class="faq-answer">
-                            Bisa! Kalau Anda punya referensi desain atau mockup, kirim saja. Saya akan sesuaikan dengan kebutuhan Anda. Kalau belum ada, saya bantu dari nol juga gak masalah.
-                        </div>
+                        <div class="faq-answer" data-id="Bisa banget! Punya referensi website yang kamu suka? Atau udah punya mockup/desain sendiri? Kirim aja, nanti saya sesuaikan. Kalau belum ada gambaran sama sekali juga gak masalah, kita diskusi bareng sampai ketemu yang pas!" data-en="Absolutely! Have a website reference you like? Or already have your own mockup/design? Just send it, I'll adapt it. If you have no idea at all, that's fine too, we'll discuss together until we find the right one!">Bisa banget! Punya referensi website yang kamu suka? Atau udah punya mockup/desain sendiri? Kirim aja, nanti saya sesuaikan. Kalau belum ada gambaran sama sekali juga gak masalah, kita diskusi bareng sampai ketemu yang pas!</div>
                     </div>
                     
                     <div class="faq-item">
                         <div class="faq-question">
                             <i class="fas fa-question-circle"></i>
-                            Apakah ada garansi setelah website jadi?
+                            <span data-id="Apakah ada garansi setelah website jadi?" data-en="Is there a warranty after the website is done?">Apakah ada garansi setelah website jadi?</span>
                         </div>
-                        <div class="faq-answer">
-                            Ya, ada garansi minor bug fix selama 14 hari setelah website publish. Untuk maintenance rutin atau update konten, ada paket maintenance tersendiri dengan harga terjangkau.
+                        <div class="faq-answer" data-id="Ada! Gratis perbaikan bug kecil selama 14 hari setelah website online. Kalau ada error atau masalah teknis, langsung hubungi aja. Untuk update konten rutin atau maintenance jangka panjang, ada paket maintenance tersendiri yang harganya terjangkau." data-en="Yes! Free minor bug fixes for 14 days after website goes live. If there's an error or technical issue, just contact me. For regular content updates or long-term maintenance, there's a separate affordable maintenance package.">Ada! Gratis perbaikan bug kecil selama 14 hari setelah website online. Kalau ada error atau masalah teknis, langsung hubungi aja. Untuk update konten rutin atau maintenance jangka panjang, ada paket maintenance tersendiri yang harganya terjangkau.</div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <i class="fas fa-question-circle"></i>
+                            <span data-id="Saya gak ngerti soal website, bisa dibantu dari nol?" data-en="I don't understand websites, can you help from scratch?">Saya gak ngerti soal website, bisa dibantu dari nol?</span>
                         </div>
+                        <div class="faq-answer" data-id="Bisa banget! Justru kebanyakan klien saya awam soal website. Saya jelasin semua dengan bahasa yang gampang dimengerti, gak pakai istilah ribet. Dari konsep, desain, sampai online, saya pandu step by step. Tenang aja!" data-en="Of course! Most of my clients are new to websites. I explain everything in easy-to-understand language, no complicated terms. From concept, design, to going live, I guide step by step. Don't worry!">Bisa banget! Justru kebanyakan klien saya awam soal website. Saya jelasin semua dengan bahasa yang gampang dimengerti, gak pakai istilah ribet. Dari konsep, desain, sampai online, saya pandu step by step. Tenang aja!</div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <i class="fas fa-question-circle"></i>
+                            <span data-id="Apakah bisa update konten website sendiri nanti?" data-en="Can I update website content myself later?">Apakah bisa update konten website sendiri nanti?</span>
+                        </div>
+                        <div class="faq-answer" data-id="Tergantung pilihan. Kalau mau sistem CMS (bisa edit sendiri kayak admin), bisa diatur tapi harganya sedikit lebih mahal. Kalau mau yang simple dan murah, nanti kalau ada update bisa minta tolong saya dengan biaya kecil atau pakai paket maintenance." data-en="Depends on choice. If you want a CMS system (you can edit yourself like admin), can be arranged but slightly more expensive. If you want simple and cheap, later if there's an update you can ask me for help with a small fee or use maintenance package.">Tergantung pilihan. Kalau mau sistem CMS (bisa edit sendiri kayak admin), bisa diatur tapi harganya sedikit lebih mahal. Kalau mau yang simple dan murah, nanti kalau ada update bisa minta tolong saya dengan biaya kecil atau pakai paket maintenance.</div>
                     </div>
                 </div>
             </section>
 
             <!-- CTA Section -->
             <section class="cta-section">
-                <h2 data-id="Siap Bawa Bisnis Anda Online?" data-en="Ready to Bring Your Business Online?">Siap Bawa Bisnis Anda Online?</h2>
-                <p data-id="Konsultasi gratis! Ceritakan kebutuhan website Anda, saya bantu realisasikan dengan cepat dan professional." data-en="Free consultation! Share your website needs, I'll help bring them to life quickly and professionally.">Konsultasi gratis! Ceritakan kebutuhan website Anda, saya bantu realisasikan dengan cepat dan professional.</p>
-                <a href="https://wa.me/6281519098562?text=Halo,%20saya%20mau%20konsultasi%20pembuatan%20website" class="btn btn-primary" target="_blank">
+                <h2 data-id="Yuk, Bikin Website Sekarang!" data-en="Let's Create Your Website Now!">Yuk, Bikin Website Sekarang!</h2>
+                <p data-id="Konsultasi GRATIS via WhatsApp — Tanya Dulu, Cocok Baru Deal! Gak pakai ribet, chat aja langsung. Saya siap bantu dari nol sampai website kamu online dan siap dapat pelanggan." data-en="FREE consultation via WhatsApp — Ask First, Deal When Suitable! No hassle, just chat directly. I'm ready to help from scratch until your website is live and ready to get customers.">Konsultasi GRATIS via WhatsApp — Tanya Dulu, Cocok Baru Deal! Gak pakai ribet, chat aja langsung. Saya siap bantu dari nol sampai website kamu online dan siap dapat pelanggan.</p>
+                <a href="https://wa.me/6281519098562?text=Halo%20Daffa,%20saya%20mau%20tanya-tanya%20soal%20jasa%20pembuatan%20website.%20Boleh%20konsultasi%20gratis?" class="btn btn-primary" target="_blank" style="font-size: 1.1rem; padding: 1rem 2.5rem;">
                     <i class="fab fa-whatsapp"></i>
-                    <span data-id="Chat via WhatsApp Sekarang" data-en="Chat via WhatsApp Now">Chat via WhatsApp Sekarang</span>
+                    <span data-id="💬 Chat Gratis Sekarang" data-en="💬 Free Chat Now">💬 Chat Gratis Sekarang</span>
                 </a>
-                <p style="margin-top: 1.5rem; font-size: 0.95rem; color: var(--text-muted);">
-                    <i class="fas fa-clock"></i> <span data-id="Fast response" data-en="Fast response">Fast response</span> • <i class="fas fa-shield-alt"></i> <span data-id="Garansi revisi" data-en="Revision guarantee">Garansi revisi</span> • <i class="fas fa-handshake"></i> <span data-id="Pembayaran aman" data-en="Secure payment">Pembayaran aman</span>
+                <p style="margin-top: 1.5rem; font-size: 1rem; color: var(--text-muted);">
+                    <i class="fas fa-clock"></i> <span data-id="Respon cepat" data-en="Fast response">Respon cepat</span> • <i class="fas fa-shield-alt"></i> <span data-id="Garansi revisi" data-en="Revision guarantee">Garansi revisi</span> • <i class="fas fa-handshake"></i> <span data-id="Bayar bertahap" data-en="Staged payment">Bayar bertahap</span> • <i class="fas fa-star"></i> <span data-id="Harga pas di kantong" data-en="Affordable price">Harga pas di kantong</span>
+                </p>
+                <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--text-muted); font-style: italic;">
+                    <span data-id="✅ Sudah bantu 20+ bisnis punya website profesional" data-en="✅ Already helped 20+ businesses have professional websites">✅ Sudah bantu 20+ bisnis punya website profesional</span>
                 </p>
             </section>
 
