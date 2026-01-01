@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Jasa Pembuatan Website Profesional untuk UMKM & Bisnis - Cepat, Terjangkau, Garansi Revisi">
+    <meta name="keywords" content="jasa pembuatan website, web developer freelance, website UMKM, landing page murah, fix error website">
+    <meta name="author" content="Daffa Utomo">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Jasa Pembuatan Website Profesional - Daffa Utomo">
+    <meta property="og:description" content="Bantu bisnis Anda online dengan website profesional. Mulai dari 100rb. Fast response & garansi revisi!">
+    <meta property="og:type" content="website">
+    
+    <title>Jasa Pembuatan Website | Web Developer Freelance - Daffa Utomo</title>
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cdefs%3E%3ClinearGradient id='grad' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' style='stop-color:%233b82f6;stop-opacity:1' /%3E%3Cstop offset='100%25' style='stop-color:%238b5cf6;stop-opacity:1' /%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='100' height='100' rx='20' fill='url(%23grad)'/%3E%3Ctext x='50' y='73' font-family='Arial, sans-serif' font-size='60' font-weight='bold' fill='white' text-anchor='middle'%3ED%3C/text%3E%3C/svg%3E">
+    
+    <!-- Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    </noscript>
+    
+    <style>
+        /* Additional styles for services page */
+        /* Language Toggle */
+        .language-toggle {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            z-index: 1000;
+            display: flex;
+            gap: 0.5rem;
+            background: var(--bg-secondary);
+            padding: 0.5rem;
+            border-radius: 2rem;
+            border: 1px solid var(--border-color);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .language-toggle button {
+            padding: 0.5rem 1rem;
+            border: none;
+            background: transparent;
+            color: var(--text-muted);
+            cursor: pointer;
+            border-radius: 1.5rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .language-toggle button.active {
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            color: white;
+        }
+        
+        .language-toggle button:hover:not(.active) {
+            color: var(--text-primary);
+        }
+        
+        .services-hero {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
+            border-radius: 1rem;
+            margin-bottom: 4rem;
+        }
+        
+        .services-hero h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+        
+        .services-hero p {
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+        
+        .btn {
+            padding: 0.875rem 2rem;
+            border-radius: 0.5rem;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 2px solid var(--border-color);
+        }
+        
+        .btn-secondary:hover {
+            border-color: var(--accent-primary);
+            color: var(--accent-primary);
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        
+        .service-card {
+            background: var(--bg-secondary);
+            padding: 2rem;
+            border-radius: 1rem;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-color: var(--accent-primary);
+        }
+        
+        .service-card::after {
+            content: var(--view-price-text, 'Lihat Harga →');
+            position: absolute;
+            bottom: 1.5rem;
+            right: 2rem;
+            color: var(--accent-primary);
+            font-size: 0.875rem;
+            font-weight: 600;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .service-card:hover::after {
+            opacity: 1;
+        }
+        
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            border-radius: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .service-card h3 {
+            font-size: 1.5rem;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+        
+        .service-card p {
+            color: var(--text-muted);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        
+        .service-price {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--accent-primary);
+            margin-top: 1rem;
+        }
+        
+        .features-list {
+            list-style: none;
+            padding: 0;
+            margin: 1rem 0;
+        }
+        
+        .features-list li {
+            padding: 0.5rem 0;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .features-list li i {
+            color: var(--accent-primary);
+        }
+        
+        .why-me-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+        }
+        
+        .why-card {
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .why-card i {
+            font-size: 2.5rem;
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+        }
+        
+        .why-card h3 {
+            font-size: 1.25rem;
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
+        }
+        
+        .why-card p {
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+        
+        .workflow {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 3rem 0;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .workflow-step {
+            flex: 1;
+            min-width: 150px;
+            text-align: center;
+            padding: 1.5rem 1rem;
+            background: var(--bg-secondary);
+            border-radius: 1rem;
+            border: 1px solid var(--border-color);
+            position: relative;
+        }
+        
+        .workflow-step::after {
+            content: '→';
+            position: absolute;
+            right: -1.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1.5rem;
+            color: var(--accent-primary);
+        }
+        
+        .workflow-step:last-child::after {
+            content: '';
+        }
+        
+        .workflow-number {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin: 0 auto 1rem;
+        }
+        
+        .workflow-step h4 {
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .workflow-step p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+        
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 4rem;
+        }
+        
+        .portfolio-item {
+            background: var(--bg-secondary);
+            border-radius: 1rem;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+        
+        .portfolio-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .portfolio-placeholder {
+            height: 200px;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--accent-primary);
+        }
+        
+        .portfolio-content {
+            padding: 1.5rem;
+        }
+        
+        .portfolio-content h3 {
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            font-size: 1.25rem;
+        }
+        
+        .portfolio-content p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+        
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        
+        .pricing-card {
+            background: var(--bg-secondary);
+            padding: 2.5rem;
+            border-radius: 1rem;
+            border: 2px solid var(--border-color);
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .pricing-card.featured {
+            border-color: var(--accent-primary);
+            transform: scale(1.05);
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .pricing-badge {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            color: white;
+            border-radius: 2rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .pricing-card h3 {
+            font-size: 1.75rem;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+        
+        .pricing-amount {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .pricing-period {
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+        }
+        
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto 4rem;
+        }
+        
+        .faq-item {
+            background: var(--bg-secondary);
+            padding: 1.5rem;
+            border-radius: 1rem;
+            margin-bottom: 1rem;
+            border: 1px solid var(--border-color);
+        }
+        
+        .faq-question {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .faq-question i {
+            color: var(--accent-primary);
+        }
+        
+        .faq-answer {
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+        
+        .cta-section {
+            text-align: center;
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(139, 92, 246, 0.1));
+            border-radius: 1rem;
+            margin: 4rem 0;
+        }
+        
+        .cta-section h2 {
+            font-size: 2rem;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+        
+        .cta-section p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        @media (max-width: 768px) {
+            .services-hero h1 {
+                font-size: 2rem;
+            }
+            
+            .workflow {
+                flex-direction: column;
+            }
+            
+            .workflow-step::after {
+                content: '↓';
+                right: auto;
+                top: auto;
+                bottom: -1.5rem;
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            
+            .workflow-step:last-child::after {
+                content: '';
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Language Toggle -->
+    <div class="language-toggle">
+        <button onclick="switchLanguage('id')" class="active" id="btn-id">
+            <i class="fas fa-language"></i> ID
+        </button>
+        <button onclick="switchLanguage('en')" id="btn-en">
+            <i class="fas fa-language"></i> EN
+        </button>
+    </div>
+    
+    <div class="main-wrapper">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="sidebar-content">
+                <div class="sidebar-header">
+                    <h1>Daffa Utomo</h1>
+                    <h2 data-id="Web Developer" data-en="Web Developer">Web Developer</h2>
+                    <p data-id="Bantu bisnis Anda online dengan website yang cepat, profesional, dan terjangkau." data-en="Help your business go online with fast, professional, and affordable websites.">Bantu bisnis Anda online dengan website yang cepat, profesional, dan terjangkau.</p>
+                </div>
+                
+                <nav class="sidebar-nav" aria-label="Main navigation">
+                    <a href="#services" class="active" data-id="Layanan" data-en="Services">Layanan</a>
+                    <a href="#why-me" data-id="Kenapa Saya?" data-en="Why Me?">Kenapa Saya?</a>
+                    <a href="#portfolio" data-id="Portfolio" data-en="Portfolio">Portfolio</a>
+                    <a href="#pricing" data-id="Harga" data-en="Pricing">Harga</a>
+                    <a href="#faq" data-id="FAQ" data-en="FAQ">FAQ</a>
+                    <a href="../index.html" data-id="Tentang Saya" data-en="About Me">Tentang Saya</a>
+                </nav>
+            </div>
+            
+            <div class="sidebar-social">
+                <a href="https://wa.me/6281519098562?text=Halo,%20saya%20mau%20konsultasi%20pembuatan%20website" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
+                    <i class="fab fa-whatsapp"></i>
+                </a>
+                <a href="https://github.com/daffautomo23" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                    <i class="fab fa-github"></i>
+                </a>
+                <a href="https://linkedin.com/in/daffautomo" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+            </div>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Hero Section -->
+            <section class="services-hero">
+                <h1 data-id="Website Profesional untuk Bisnis Anda" data-en="Professional Website for Your Business">Website Profesional untuk Bisnis Anda</h1>
+                <p data-id="Dari konsep sampai online, saya bantu bisnis UMKM & brand personal punya website yang menarik dan berfungsi dengan baik" data-en="From concept to launch, I help SMEs & personal brands build attractive and functional websites">Dari konsep sampai online, saya bantu bisnis UMKM & brand personal punya website yang menarik dan berfungsi dengan baik</p>
+                <div class="cta-buttons">
+                    <a href="https://wa.me/6281519098562?text=Halo,%20saya%20mau%20konsultasi%20pembuatan%20website" class="btn btn-primary" target="_blank">
+                        <i class="fab fa-whatsapp"></i>
+                        <span data-id="Konsultasi Gratis via WhatsApp" data-en="Free Consultation via WhatsApp">Konsultasi Gratis via WhatsApp</span>
+                    </a>
+                    <a href="../pages/all-projects.html?from=services" class="btn btn-secondary">
+                        <i class="fas fa-folder-open"></i>
+                        <span data-id="Lihat Portfolio" data-en="View Portfolio">Lihat Portfolio</span>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Services Section -->
+            <section id="services" class="section">
+                <div class="section-header">
+                    <h2 class="section-title" data-id="Layanan yang Saya Tawarkan" data-en="Services I Offer">Layanan yang Saya Tawarkan</h2>
+                    <p class="section-description" data-id="Solusi lengkap untuk kebutuhan website bisnis Anda, dari yang sederhana sampai yang lebih kompleks" data-en="Complete solutions for your business website needs, from simple to complex">
+                        Solusi lengkap untuk kebutuhan website bisnis Anda, dari yang sederhana sampai yang lebih kompleks
+                    </p>
+                </div>
+                
+                <div class="services-grid">
+                    <!-- Service 1 -->
+                    <div class="service-card" onclick="location.href='#price-starter'">
+                        <div class="service-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <h3 data-id="Fix Error Website" data-en="Fix Website Errors">Fix Error Website</h3>
+                        <p data-id="Website error? Bug? Lambat? Saya perbaiki dengan cepat dan tuntas." data-en="Website errors? Bugs? Slow? I'll fix it quickly and thoroughly.">Website error? Bug? Lambat? Saya perbaiki dengan cepat dan tuntas.</p>
+                        <ul class="features-list">
+                            <li><i class="fas fa-check"></i> <span data-id="Perbaikan bug & error" data-en="Bug & error fixes">Perbaikan bug & error</span></li>
+                            <li><i class="fas fa-check"></i> <span data-id="Optimasi kecepatan" data-en="Speed optimization">Optimasi kecepatan</span></li>
+                            <li><i class="fas fa-check"></i> <span data-id="Perbaikan tampilan" data-en="UI fixes">Perbaikan tampilan</span></li>
+                            <li><i class="fas fa-check"></i> <span data-id="Garansi 7 hari" data-en="7-day warranty">Garansi 7 hari</span></li>
+                        </ul>
+                        <div class="service-price" data-id="Mulai dari Rp 100.000" data-en="Starting from Rp 100,000">Mulai dari Rp 100.000</div>
+                    </div>
+
+                    <!-- Service 2 -->
+                    <div class="service-card" onclick="location.href='#price-starter'">
+                        <div class="service-icon">
+                            <i class="fas fa-server"></i>
+                        </div>
+                        <h3 data-id="Setup Domain & Hosting" data-en="Domain & Hosting Setup">Setup Domain & Hosting</h3>
+                        <p data-id="Bingung setup domain dan hosting? Saya bantu dari A sampai Z sampai website Anda online." data-en="Confused about domain and hosting setup? I'll help you from A to Z until your website is live.">Bingung setup domain dan hosting? Saya bantu dari A sampai Z sampai website Anda online.</p>
+                        <ul class="features-list">
+                            <li><i class="fas fa-check"></i> <span data-id="Instalasi hosting" data-en="Hosting installation">Instalasi hosting</span></li>
+                            <li><i class="fas fa-check"></i> <span data-id="Konfigurasi domain" data-en="Domain configuration">Konfigurasi domain</span></li>
+                            <li><i class="fas fa-check"></i> <span data-id="SSL gratis" data-en="Free SSL">SSL gratis</span></li>
+                            <li><i class="fas fa-check"></i> <span data-id="Panduan maintenance" data-en="Maintenance guide">Panduan maintenance</span></li>
+                        </ul>
+                        <div class="service-price" data-id="Mulai dari Rp 150.000" data-en="Starting from Rp 150,000">Mulai dari Rp 150.000</div>
+                    </div>
+
+                    <!-- Service 3 -->
+                    <div class="service-card" onclick="location.href='#price-landing'">
+                        <div class="service-icon">
+                            <i class="fas fa-file-alt"></i>
+                        </div>
+                        <h3 data-id="Landing Page" data-en="Landing Page">Landing Page</h3>
+                        <p data-id="Butuh landing page untuk promosi atau campaign? Saya buatkan yang menarik dan responsif." data-en="Need a landing page for promotion or campaign? I'll create an attractive and responsive one.">Butuh landing page untuk promosi atau campaign? Saya buatkan yang menarik dan responsif.</p>
+                        <ul class="features-list">
+                            <li><i class="fas fa-check"></i> <span data-id="Desain modern & responsif" data-en="Modern & responsive design">Desain modern & responsif</span></li>
+                            <li><i class="fas fa-check"></i> <span data-id="Mobile-friendly" data-en="Mobile-friendly">Mobile-friendly</span></li>
+                            <li><i class="fas fa-check"></i> <span data-id="Optimasi SEO dasar" data-en="Basic SEO optimization">Optimasi SEO dasar</span></li>
+                            <li><i class="fas fa-check"></i> <span data-id="Revisi 2x" data-en="2x revisions">Revisi 2x</span></li>
+                        </ul>
+                        <div class="service-price" data-id="Mulai dari Rp 200.000" data-en="Starting from Rp 200,000">Mulai dari Rp 200.000</div>
+                    </div>
+
+                    <!-- Service 4 -->
+                    <div class="service-card" onclick="location.href='#price-landing'">
+                        <div class="service-icon">
+                            <i class="fas fa-plug"></i>
+                        </div>
+                        <h3 data-id="Integrasi API" data-en="API Integration">Integrasi API</h3>
+                        <p data-id="Perlu koneksi ke WhatsApp, payment gateway, atau sistem lain? Saya integrasikan untuk Anda." data-en="Need connection to WhatsApp, payment gateway, or other systems? I'll integrate them for you.">Perlu koneksi ke WhatsApp, payment gateway, atau sistem lain? Saya integrasikan untuk Anda.</p>
+                        <ul class="features-list">
+                            <li><i class="fas fa-check"></i> <span data-id="WhatsApp Business API" data-en="WhatsApp Business API">WhatsApp Business API</span></li>
+                            <li><i class="fas fa-check"></i> <span data-id="Payment Gateway" data-en="Payment Gateway">Payment Gateway</span></li>
+                            <li><i class="fas fa-check"></i> <span data-id="Google Maps" data-en="Google Maps">Google Maps</span></li>
+                            <li><i class="fas fa-check"></i> <span data-id="Social Media Feed" data-en="Social Media Feed">Social Media Feed</span></li>
+                        </ul>
+                        <div class="service-price" data-id="Mulai dari Rp 250.000" data-en="Starting from Rp 250,000">Mulai dari Rp 250.000</div>
+                    </div>
+
+                    <!-- Service 5 -->
+                    <div class="service-card" onclick="location.href='#price-umkm'">
+                        <div class="service-icon">
+                            <i class="fas fa-store"></i>
+                        </div>
+                        <h3 data-id="Website UMKM Lengkap" data-en="Complete SME Website">Website UMKM Lengkap</h3>
+                        <p data-id="Paket lengkap untuk UMKM: company profile, katalog produk, form kontak, dan halaman penting lainnya." data-en="Complete package for SMEs: company profile, product catalog, contact form, and other important pages.">Paket lengkap untuk UMKM: company profile, katalog produk, form kontak, dan halaman penting lainnya.</p>
+                        <ul class="features-list">
+                            <li><i class="fas fa-check"></i> <span data-id="Multi halaman (5-7 halaman)" data-en="Multi-page (5-7 pages)">Multi halaman (5-7 halaman)</span></li>
+                            <li><i class="fas fa-check"></i> <span data-id="Katalog produk/jasa" data-en="Product/service catalog">Katalog produk/jasa</span></li>
+                            <li><i class="fas fa-check"></i> <span data-id="Form kontak & WhatsApp" data-en="Contact form & WhatsApp">Form kontak & WhatsApp</span></li>
+                            <li><i class="fas fa-check"></i> <span data-id="SEO friendly" data-en="SEO friendly">SEO friendly</span></li>
+                            <li><i class="fas fa-check"></i> <span data-id="Google Analytics" data-en="Google Analytics">Google Analytics</span></li>
+                            <li><i class="fas fa-check"></i> <span data-id="Revisi 3x" data-en="3x revisions">Revisi 3x</span></li>
+                        </ul>
+                        <div class="service-price" data-id="Mulai dari Rp 500.000" data-en="Starting from Rp 500,000">Mulai dari Rp 500.000</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Why Choose Me Section -->
+            <section id="why-me" class="section">
+                <div class="section-header">
+                    <h2 class="section-title" data-id="Kenapa Pilih Saya?" data-en="Why Choose Me?">Kenapa Pilih Saya?</h2>
+                    <p class="section-description" data-id="Bukan cuma bikin website, tapi juga pastikan bisnis Anda dapat value yang maksimal" data-en="Not just building websites, but also ensuring your business gets maximum value">
+                        Bukan cuma bikin website, tapi juga pastikan bisnis Anda dapat value yang maksimal
+                    </p>
+                </div>
+                
+                <div class="why-me-grid">
+                    <div class="why-card">
+                        <i class="fas fa-rocket"></i>
+                        <h3 data-id="Pengerjaan Cepat" data-en="Fast Delivery">Pengerjaan Cepat</h3>
+                        <p data-id="Landing page bisa selesai 3-5 hari, website UMKM 7-14 hari. Gak pakai lama!" data-en="Landing page ready in 3-5 days, SME website in 7-14 days. Quick turnaround!">Landing page bisa selesai 3-5 hari, website UMKM 7-14 hari. Gak pakai lama!</p>
+                    </div>
+                    
+                    <div class="why-card">
+                        <i class="fas fa-sync-alt"></i>
+                        <h3 data-id="Garansi Revisi" data-en="Revision Guarantee">Garansi Revisi</h3>
+                        <p data-id="Gratis revisi sesuai paket. Saya pastikan website sesuai dengan keinginan Anda." data-en="Free revisions according to package. I ensure the website matches your vision.">Gratis revisi sesuai paket. Saya pastikan website sesuai dengan keinginan Anda.</p>
+                    </div>
+                    
+                    <div class="why-card">
+                        <i class="fas fa-comments"></i>
+                        <h3 data-id="Komunikasi Jelas" data-en="Clear Communication">Komunikasi Jelas</h3>
+                        <p data-id="Fast response via WhatsApp. Saya jelaskan dengan bahasa yang mudah dipahami." data-en="Fast response via WhatsApp. I explain everything in simple terms.">Fast response via WhatsApp. Saya jelaskan dengan bahasa yang mudah dipahami.</p>
+                    </div>
+                    
+                    <div class="why-card">
+                        <i class="fas fa-wrench"></i>
+                        <h3 data-id="Maintenance Opsional" data-en="Optional Maintenance">Maintenance Opsional</h3>
+                        <p data-id="Butuh maintenance rutin? Ada paket maintenance dengan harga terjangkau." data-en="Need regular maintenance? Affordable maintenance packages available.">Butuh maintenance rutin? Ada paket maintenance dengan harga terjangkau.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Portfolio Section -->
+            <section id="portfolio" class="section">
+                <div class="section-header">
+                    <h2 class="section-title" data-id="Hasil Kerja Saya" data-en="My Work">Hasil Kerja Saya</h2>
+                    <p class="section-description" data-id="Beberapa project yang sudah saya kerjakan untuk berbagai klien" data-en="Some projects I've completed for various clients">
+                        Beberapa project yang sudah saya kerjakan untuk berbagai klien
+                    </p>
+                </div>
+                
+                <div class="portfolio-grid">
+                    <div class="portfolio-item">
+                        <div class="portfolio-placeholder">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <div class="portfolio-content">
+                            <h3>Toko Online Bakul</h3>
+                            <p>Website e-commerce untuk bisnis retail dengan sistem keranjang belanja dan integrasi WhatsApp untuk order.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="portfolio-item">
+                        <div class="portfolio-placeholder">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <div class="portfolio-content">
+                            <h3>Website Sekolah SMP N 3</h3>
+                            <p>Website company profile untuk sekolah dengan sistem informasi, berita, dan galeri kegiatan.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="portfolio-item">
+                        <div class="portfolio-placeholder">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="portfolio-content">
+                            <h3>Portfolio Personal</h3>
+                            <p>Website portfolio untuk freelancer dan profesional yang ingin showcase skill dan project mereka.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="portfolio-item">
+                        <div class="portfolio-placeholder">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                        <div class="portfolio-content">
+                            <h3>Cancer Detection System</h3>
+                            <p>Web application untuk deteksi dini kanker menggunakan machine learning dan interface yang user-friendly.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="portfolio-item">
+                        <div class="portfolio-placeholder">
+                            <i class="fas fa-calculator"></i>
+                        </div>
+                        <div class="portfolio-content">
+                            <h3>Platform Belajar Matematika</h3>
+                            <p>Website edukatif untuk belajar matematika dengan fitur interactive dan gamifikasi.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="portfolio-item">
+                        <div class="portfolio-placeholder">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <div class="portfolio-content">
+                            <h3>Company Profile UMKM</h3>
+                            <p>Website company profile untuk UMKM dengan katalog produk dan form kontak terintegrasi.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="text-align: center; margin-top: 2rem;">
+                    <a href="../pages/all-projects.html?from=services" class="btn btn-secondary">
+                        <i class="fas fa-folder-open"></i>
+                        <span data-id="Lihat Portfolio Lengkap" data-en="View Full Portfolio">Lihat Portfolio Lengkap</span>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Workflow Section -->
+            <section id="workflow" class="section">
+                <div class="section-header">
+                    <h2 class="section-title" data-id="Cara Kerja Saya" data-en="My Workflow">Cara Kerja Saya</h2>
+                    <p class="section-description" data-id="Proses yang simple dan transparan, dari awal sampai website Anda online" data-en="Simple and transparent process, from start to your website going live">
+                        Proses yang simple dan transparan, dari awal sampai website Anda online
+                    </p>
+                </div>
+                
+                <div class="workflow">
+                    <div class="workflow-step">
+                        <div class="workflow-number">1</div>
+                        <h4 data-id="Konsultasi" data-en="Consultation">Konsultasi</h4>
+                        <p data-id="Ceritakan kebutuhan Anda via WhatsApp" data-en="Share your needs via WhatsApp">Ceritakan kebutuhan Anda via WhatsApp</p>
+                    </div>
+                    
+                    <div class="workflow-step">
+                        <div class="workflow-number">2</div>
+                        <h4 data-id="Deal" data-en="Agreement">Deal</h4>
+                        <p data-id="Sepakat harga & timeline, DP 50%" data-en="Agree on price & timeline, 50% down payment">Sepakat harga & timeline, DP 50%</p>
+                    </div>
+                    
+                    <div class="workflow-step">
+                        <div class="workflow-number">3</div>
+                        <h4 data-id="Pengerjaan" data-en="Development">Pengerjaan</h4>
+                        <p data-id="Saya kerjakan dengan update progress berkala" data-en="I work with regular progress updates">Saya kerjakan dengan update progress berkala</p>
+                    </div>
+                    
+                    <div class="workflow-step">
+                        <div class="workflow-number">4</div>
+                        <h4 data-id="Revisi" data-en="Revision">Revisi</h4>
+                        <p data-id="Revisi sesuai paket sampai Anda puas" data-en="Revisions per package until you're satisfied">Revisi sesuai paket sampai Anda puas</p>
+                    </div>
+                    
+                    <div class="workflow-step">
+                        <div class="workflow-number">5</div>
+                        <h4 data-id="Publish" data-en="Launch">Publish</h4>
+                        <p data-id="Website online & pelunasan 50%" data-en="Website live & 50% final payment">Website online & pelunasan 50%</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Pricing Section -->
+            <section id="pricing" class="section">
+                <div class="section-header">
+                    <h2 class="section-title" data-id="Paket Harga" data-en="Pricing Packages">Paket Harga</h2>
+                    <p class="section-description" data-id="Harga transparan dan terjangkau untuk semua kalangan bisnis" data-en="Transparent and affordable pricing for all business types">
+                        Harga transparan dan terjangkau untuk semua kalangan bisnis
+                    </p>
+                </div>
+                
+                <div class="pricing-grid">
+                    <div class="pricing-card" id="price-starter">
+                        <h3 data-id="Paket Starter" data-en="Starter Package">Paket Starter</h3>
+                        <div class="pricing-amount">Rp 100K</div>
+                        <div class="pricing-period" data-id="per project" data-en="per project">per project</div>
+                        <ul class="features-list">
+                            <li><i class="fas fa-check"></i> <span data-id="Fix error website" data-en="Fix website errors">Fix error website</span></li>
+                            <li><i class="fas fa-check"></i> <span data-id="Perbaikan bug" data-en="Bug fixes">Perbaikan bug</span></li>
+                            <li><i class="fas fa-check"></i> <span data-id="Optimasi performa" data-en="Performance optimization">Optimasi performa</span></li>
+                            <li><i class="fas fa-check"></i> <span data-id="Garansi 7 hari" data-en="7-day warranty">Garansi 7 hari</span></li>
+                            <li><i class="fas fa-check"></i> <span data-id="Pengerjaan 1-2 hari" data-en="1-2 days delivery">Pengerjaan 1-2 hari</span></li>
+                        </ul>
+                        <a href="https://wa.me/6281519098562?text=Halo,%20saya%20tertarik%20dengan%20Paket%20Starter" class="btn btn-primary" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                            <span data-id="Pesan Sekarang" data-en="Order Now">Pesan Sekarang</span>
+                        </a>
+                    </div>
+                    
+                    <div class="pricing-card featured" id="price-landing">
+                        <div class="pricing-badge" data-id="PALING POPULER" data-en="MOST POPULAR">PALING POPULER</div>
+                        <h3 data-id="Paket Landing Page" data-en="Landing Page Package">Paket Landing Page</h3>
+                        <div class="pricing-amount">Rp 200K</div>
+                        <div class="pricing-period" data-id="per project" data-en="per project">per project</div>
+                        <ul class="features-list">
+                            <li><i class="fas fa-check"></i> <span data-id="1 halaman landing page" data-en="1 landing page">1 halaman landing page</span></li>
+                            <li><i class="fas fa-check"></i> <span data-id="Desain modern & responsif" data-en="Modern & responsive design">Desain modern & responsif</span></li>
+                            <li><i class="fas fa-check"></i> <span data-id="Mobile friendly" data-en="Mobile friendly">Mobile friendly</span></li>
+                            <li><i class="fas fa-check"></i> <span data-id="Form kontak" data-en="Contact form">Form kontak</span></li>
+                            <li><i class="fas fa-check"></i> <span data-id="SEO dasar" data-en="Basic SEO">SEO dasar</span></li>
+                            <li><i class="fas fa-check"></i> <span data-id="Revisi 2x" data-en="2x revisions">Revisi 2x</span></li>
+                            <li><i class="fas fa-check"></i> <span data-id="Pengerjaan 3-5 hari" data-en="3-5 days delivery">Pengerjaan 3-5 hari</span></li>
+                        </ul>
+                        <a href="https://wa.me/6281519098562?text=Halo,%20saya%20tertarik%20dengan%20Paket%20Landing%20Page" class="btn btn-primary" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                            <span data-id="Pesan Sekarang" data-en="Order Now">Pesan Sekarang</span>
+                        </a>
+                    </div>
+                    
+                    <div class="pricing-card" id="price-umkm">
+                        <h3 data-id="Paket UMKM" data-en="SME Package">Paket UMKM</h3>
+                        <div class="pricing-amount">Rp 500K</div>
+                        <div class="pricing-period" data-id="per project" data-en="per project">per project</div>
+                        <ul class="features-list">
+                            <li><i class="fas fa-check"></i> <span data-id="5-7 halaman" data-en="5-7 pages">5-7 halaman</span></li>
+                            <li><i class="fas fa-check"></i> <span data-id="Katalog produk/jasa" data-en="Product/service catalog">Katalog produk/jasa</span></li>
+                            <li><i class="fas fa-check"></i> <span data-id="Form kontak & WhatsApp" data-en="Contact form & WhatsApp">Form kontak & WhatsApp</span></li>
+                            <li><i class="fas fa-check"></i> <span data-id="Google Maps" data-en="Google Maps">Google Maps</span></li>
+                            <li><i class="fas fa-check"></i> <span data-id="SEO friendly" data-en="SEO friendly">SEO friendly</span></li>
+                            <li><i class="fas fa-check"></i> <span data-id="Google Analytics" data-en="Google Analytics">Google Analytics</span></li>
+                            <li><i class="fas fa-check"></i> <span data-id="Revisi 3x" data-en="3x revisions">Revisi 3x</span></li>
+                            <li><i class="fas fa-check"></i> <span data-id="Pengerjaan 7-14 hari" data-en="7-14 days delivery">Pengerjaan 7-14 hari</span></li>
+                        </ul>
+                        <a href="https://wa.me/6281519098562?text=Halo,%20saya%20tertarik%20dengan%20Paket%20UMKM" class="btn btn-primary" target="_blank">
+                            <i class="fab fa-whatsapp"></i>
+                            <span data-id="Pesan Sekarang" data-en="Order Now">Pesan Sekarang</span>
+                        </a>
+                    </div>
+                </div>
+                
+                <div style="text-align: center; margin-top: 2rem;">
+                    <p style="color: var(--text-muted);">
+                        <i class="fas fa-info-circle"></i> 
+                        <span data-id="Harga belum termasuk domain & hosting. Butuh paket custom?" data-en="Prices exclude domain & hosting. Need a custom package?">Harga belum termasuk domain & hosting. Butuh paket custom?</span> 
+                        <a href="https://wa.me/6281519098562?text=Halo,%20saya%20butuh%20paket%20custom" target="_blank" style="color: var(--accent-primary);" data-id="Hubungi saya" data-en="Contact me">Hubungi saya</a>
+                    </p>
+                </div>
+            </section>
+
+            <!-- FAQ Section -->
+            <section id="faq" class="section">
+                <div class="section-header">
+                    <h2 class="section-title" data-id="Pertanyaan yang Sering Ditanyakan" data-en="Frequently Asked Questions">Pertanyaan yang Sering Ditanyakan</h2>
+                    <p class="section-description" data-id="Jawaban untuk pertanyaan umum seputar layanan pembuatan website" data-en="Answers to common questions about website development services">
+                        Jawaban untuk pertanyaan umum seputar layanan pembuatan website
+                    </p>
+                </div>
+                
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <i class="fas fa-question-circle"></i>
+                            Berapa lama proses pembuatan website?
+                        </div>
+                        <div class="faq-answer">
+                            Tergantung paket yang dipilih. Landing page biasanya 3-5 hari kerja, website UMKM 7-14 hari kerja. Untuk project custom, timeline akan didiskusikan terlebih dahulu.
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <i class="fas fa-question-circle"></i>
+                            Apakah harga sudah termasuk domain dan hosting?
+                        </div>
+                        <div class="faq-answer">
+                            Belum. Harga yang tertera adalah untuk jasa pembuatan website saja. Untuk domain dan hosting, biayanya sekitar Rp 150.000 - Rp 300.000 per tahun tergantung provider. Saya bisa bantu setup juga.
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <i class="fas fa-question-circle"></i>
+                            Bagaimana cara bayarnya?
+                        </div>
+                        <div class="faq-answer">
+                            Sistem pembayaran: DP 50% di awal setelah deal, pelunasan 50% setelah website selesai dan siap publish. Pembayaran bisa via transfer bank atau e-wallet.
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <i class="fas fa-question-circle"></i>
+                            Apakah bisa request desain sendiri?
+                        </div>
+                        <div class="faq-answer">
+                            Bisa! Kalau Anda punya referensi desain atau mockup, kirim saja. Saya akan sesuaikan dengan kebutuhan Anda. Kalau belum ada, saya bantu dari nol juga gak masalah.
+                        </div>
+                    </div>
+                    
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <i class="fas fa-question-circle"></i>
+                            Apakah ada garansi setelah website jadi?
+                        </div>
+                        <div class="faq-answer">
+                            Ya, ada garansi minor bug fix selama 14 hari setelah website publish. Untuk maintenance rutin atau update konten, ada paket maintenance tersendiri dengan harga terjangkau.
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CTA Section -->
+            <section class="cta-section">
+                <h2 data-id="Siap Bawa Bisnis Anda Online?" data-en="Ready to Bring Your Business Online?">Siap Bawa Bisnis Anda Online?</h2>
+                <p data-id="Konsultasi gratis! Ceritakan kebutuhan website Anda, saya bantu realisasikan dengan cepat dan professional." data-en="Free consultation! Share your website needs, I'll help bring them to life quickly and professionally.">Konsultasi gratis! Ceritakan kebutuhan website Anda, saya bantu realisasikan dengan cepat dan professional.</p>
+                <a href="https://wa.me/6281519098562?text=Halo,%20saya%20mau%20konsultasi%20pembuatan%20website" class="btn btn-primary" target="_blank">
+                    <i class="fab fa-whatsapp"></i>
+                    <span data-id="Chat via WhatsApp Sekarang" data-en="Chat via WhatsApp Now">Chat via WhatsApp Sekarang</span>
+                </a>
+                <p style="margin-top: 1.5rem; font-size: 0.95rem; color: var(--text-muted);">
+                    <i class="fas fa-clock"></i> <span data-id="Fast response" data-en="Fast response">Fast response</span> • <i class="fas fa-shield-alt"></i> <span data-id="Garansi revisi" data-en="Revision guarantee">Garansi revisi</span> • <i class="fas fa-handshake"></i> <span data-id="Pembayaran aman" data-en="Secure payment">Pembayaran aman</span>
+                </p>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer" style="margin-left: 50%;">
+        <div style="padding: 2rem 6rem 2rem 4rem;">
+            <div class="footer-bottom">
+                <p style="font-size: 0.875rem; color: var(--text-muted);">
+                    &copy; 2025 Daffa Utomo. Jasa Pembuatan Website Profesional
+                </p>
+                <p style="margin-top: 0.5rem; font-size: 0.8rem; color: var(--text-muted);">
+                    <a href="../index.html" style="color: var(--accent-primary);">Portfolio</a> • 
+                    <a href="https://wa.me/6281519098562" target="_blank" style="color: var(--accent-primary);">WhatsApp</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../assets/js/main.js" defer></script>
+    <script>
+        // Language Switcher
+        let currentLang = 'id';
+        
+        function switchLanguage(lang) {
+            currentLang = lang;
+            
+            // Update button states
+            document.getElementById('btn-id').classList.toggle('active', lang === 'id');
+            document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+            
+            // Update all elements with data-id and data-en attributes
+            document.querySelectorAll('[data-id][data-en]').forEach(el => {
+                if (lang === 'id') {
+                    el.textContent = el.getAttribute('data-id');
+                } else {
+                    el.textContent = el.getAttribute('data-en');
+                }
+            });
+            
+            // Update "Lihat Harga" text
+            document.documentElement.style.setProperty('--view-price-text', 
+                lang === 'id' ? '"Lihat Harga →"' : '"View Price →"');
+        }
+        
+        // Initialize with Indonesian
+        document.addEventListener('DOMContentLoaded', function() {
+            document.documentElement.style.setProperty('--view-price-text', '"Lihat Harga →"');
+        });
+    </script>
+</body>
+</html>

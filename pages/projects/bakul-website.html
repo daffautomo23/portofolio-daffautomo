@@ -19,8 +19,32 @@
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    
+    <style>
+        .back-to-services-btn {
+            position: fixed;
+            bottom: 2rem;
+            left: 2rem;
+            z-index: 999;
+            padding: 1rem 1.5rem;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            color: white;
+            border-radius: 3rem;
+            text-decoration: none;
+            font-weight: 600;
+            display: none;
+            align-items: center;
+            gap: 0.75rem;
+            box-shadow: 0 10px 30px rgba(59, 130, 246, 0.4);
+            transition: all 0.3s ease;
+            font-size: 0.95rem;
+        }
+        .back-to-services-btn:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(59, 130, 246, 0.5); background: linear-gradient(135deg, #2563eb, #7c3aed); }
+        @media (max-width: 768px) { .back-to-services-btn { bottom: 1rem; left: 1rem; padding: 0.875rem 1.25rem; font-size: 0.875rem; } }
+    </style>
 </head>
 <body>
+    <a href="../../services/index.html" class="back-to-services-btn" id="backToServicesBtn"><i class="fas fa-arrow-left"></i><span>Kembali ke Services</span></a>
     <div class="detail-page">
         <!-- Back Navigation -->
         <div class="detail-nav">
@@ -296,5 +320,15 @@
 
     <!-- JavaScript -->
     <script src="../../assets/js/main.js" defer></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('from') === 'services') {
+                document.getElementById('backToServicesBtn').style.display = 'flex';
+                const backLink = document.querySelector('a[href="../all-projects.html"]');
+                if (backLink) backLink.setAttribute('href', '../all-projects.html?from=services');
+            }
+        });
+    </script>
 </body>
 </html>
