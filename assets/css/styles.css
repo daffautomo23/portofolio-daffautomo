@@ -171,8 +171,29 @@ a:hover {
   flex-direction: column;
   justify-content: space-between;
   z-index: 10;
-  overflow-y: auto;
+  overflow-y: auto; /* Allow vertical scroll when content is too tall (e.g., when zoomed) */
+  overflow-x: hidden; /* No horizontal scroll */
   background-color: var(--bg-primary);
+  /* Custom scrollbar styling */
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-color) transparent;
+}
+
+.sidebar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background-color: var(--border-color);
+  border-radius: 3px;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+  background-color: var(--text-muted);
 }
 
 .sidebar-content {
@@ -645,6 +666,7 @@ a:hover {
     width: 100%;
     height: auto;
     padding: 3rem 2rem;
+    overflow: visible;
   }
   
   .sidebar-content {
@@ -657,13 +679,8 @@ a:hover {
     padding: 3rem 2rem;
   }
   
+  /* Hide navigation on mobile/tablet */
   .sidebar-nav {
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 1.5rem;
-  }
-  
-  .sidebar-nav a::before {
     display: none;
   }
   
