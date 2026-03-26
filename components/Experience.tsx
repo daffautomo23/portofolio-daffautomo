@@ -1,6 +1,8 @@
 'use client';
 
+import Link from 'next/link';
 import { motion } from 'motion/react';
+import { ArrowUpRight } from 'lucide-react';
 
 const experiences = [
     {
@@ -14,7 +16,8 @@ const experiences = [
             { name: "Odoo MMI", url: "https://odoo-mmi.otoproject.id/web/login" },
             { name: "Odoo AOS", url: "https://odoo-aos.otoproject.id/web/login" }
         ],
-        description: "Leading enterprise internal systems development and ERP management."
+        description: "Leading enterprise internal systems development and ERP management.",
+        detailUrl: "/experience/otoproject"
     },
     {
         role: "Odoo Developer",
@@ -84,6 +87,15 @@ export default function Experience() {
                                         </span>
                                     ))}
                                 </div>
+
+                                {(exp as any).detailUrl && (
+                                    <Link
+                                        href={(exp as any).detailUrl}
+                                        className="inline-flex items-center gap-2 mt-8 text-sm font-semibold text-ink border-b border-ink pb-0.5 hover:opacity-60 transition-opacity"
+                                    >
+                                        View Details <ArrowUpRight size={14} />
+                                    </Link>
+                                )}
                             </div>
                         </motion.div>
                     ))}
